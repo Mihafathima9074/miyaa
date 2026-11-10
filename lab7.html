@@ -1,20 +1,40 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>Simple Calendar</title>
+
 <style>
+body {
+    background-color: lightyellow;
+    text-align: center;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
 table {
     border-collapse: collapse;
+    width: 100%;
     margin-bottom: 10px;
 }
+
 th, td {
     padding: 5px;
     text-align: center;
+    border: 1px solid black;
+}
+
+th {
+    background-color: lightblue;
 }
 </style>
 </head>
 
-<body bgcolor="lightyellow">
+<body>
 
 <h2>Generate Calendar For A Year</h2>
 <p>Enter your year:</p>
@@ -44,13 +64,11 @@ function generateCalendar()
     ];
 
     for (let month = 0; month < 12; month++) {
-
         let monthTable =
         '<table border="1">' +
         '<tr><th colspan="7"><strong>' +
         months[month] + " " + year +
         '</strong></th></tr>';
-
         monthTable += '<tr>' +
         '<th>Sun</th>' +
         '<th>Mon</th>' +
@@ -60,7 +78,6 @@ function generateCalendar()
         '<th>Fri</th>' +
         '<th>Sat</th>' +
         '</tr>';
-
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
@@ -96,5 +113,6 @@ function generateCalendar()
     }
 }
 </script>
+
 </body>
 </html>
